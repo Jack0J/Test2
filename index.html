@@ -3,22 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Мой первый сайт</title>
+    <title>Nike — Главная</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+    <!-- Шапка -->
     <header>
-        <h1>Привет, мир!</h1>
-        <p>Это мой одностраничный сайт.</p>
+        <nav>
+            <div class="logo">
+                <a href="#"><img src="https://i.imgur.com/5bM5P7h.png" alt="Nike Logo" width="60"></a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Новинки</a></li>
+                <li><a href="#">Мужское</a></li>
+                <li><a href="#">Женское</a></li>
+                <li><a href="#">Детское</a></li>
+                <li><a href="#">Скидки</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="#"><i class="fas fa-search"></i></a>
+                <a href="#"><i class="far fa-heart"></i></a>
+                <a href="#"><i class="fas fa-shopping-bag"></i></a>
+            </div>
+        </nav>
     </header>
-    <main>
-        <section>
-            <h2>Обо мне</h2>
-            <p>Здесь может быть ваше описание или услуги.</p>
-        </section>
-    </main>
+
+    <!-- Главный баннер -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NIKE AIR MAX</h1>
+            <p>Легендарная амортизация. Современный дизайн.</p>
+            <a href="#" class="btn">Купить</a>
+        </div>
+    </section>
+
+    <!-- Популярные товары -->
+    <section class="featured">
+        <h2>Популярное</h2>
+        <div class="products">
+            <div class="product-card">
+                <img src="https://i.imgur.com/JR9q0Zs.jpg" alt="Nike Air Force 1">
+                <h3>Nike Air Force 1</h3>
+                <p>12,999 ₽</p>
+            </div>
+            <div class="product-card">
+                <img src="https://i.imgur.com/5XJQ3Bp.jpg" alt="Nike Dunk Low">
+                <h3>Nike Dunk Low</h3>
+                <p>10,999 ₽</p>
+            </div>
+            <div class="product-card">
+                <img src="https://i.imgur.com/8ZJl3fN.jpg" alt="Nike Air Jordan 1">
+                <h3>Air Jordan 1</h3>
+                <p>15,999 ₽</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Футер -->
     <footer>
-        <p>© 2024 Мой сайт</p>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>О Nike</h4>
+                <ul>
+                    <li><a href="#">Новости</a></li>
+                    <li><a href="#">Карьера</a></li>
+                    <li><a href="#">Инвесторы</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Помощь</h4>
+                <ul>
+                    <li><a href="#">Доставка</a></li>
+                    <li><a href="#">Возврат</a></li>
+                    <li><a href="#">Размеры</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Соцсети</h4>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2024 Nike, Inc. Все права защищены</p>
+        </div>
     </footer>
 </body>
 </html>
