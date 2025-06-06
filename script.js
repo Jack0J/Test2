@@ -1,42 +1,87 @@
-function exportToAppleNotes() {
-    // Создаем текст с emoji для лучшего отображения
-    let notesContent = `Ехать готов — Чек-лист для отпуска\n\n`;
+document.addEventListener('DOMContentLoaded', function() {
+    const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    const progressBar = document.getElementById('progressBar');
+    const progressText = document.getElementById('progressText');
     
-    document.querySelectorAll('.category').forEach(category => {
-        const categoryTitle = category.querySelector('h3').textContent;
-        notesContent += `▫️ ${categoryTitle}\n`;
+    // Загрузка сохраненного прогресса
+    function loadProgress() {
+        checkboxes.forEach(checkbox => {
+            const itemId = checkbox.parentElement.textContent.trim();
+            checkbox.checked = localStorage.getItem(itemId) === 'true';
+        });
+        updateProgress();
+    }
+    
+    // Обновление прогресса
+    function updateProgress() {
+        const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        const total = checkboxes.length;
+        const percentage = Math.round((checkedCount / total) * 100);
         
-        category.querySelectorAll('.checkbox-container').forEach(item => {
-            const isChecked = item.querySelector('input').checked;
-            const itemText = item.textContent.trim();
-            notesContent += `   ${isChecked ? '✅' : '☐'} ${itemText}\n`;
+        progressBar.style.width = `${percentage}%`;
+        progressText.textContent = `${percentage}% завершено`;
+        
+        // Сохранение состояния
+        checkboxes.forEach(checkbox => {
+            const itemId = checkbox.parentElement.textContent.trim();
+            localStorage.setItem(itemId, checkbox.checked);
+        });
+    }
+    
+    // Экспорт в Apple Notes
+    function exportToAppleNotes() {
+        let content = "Ехать готов — Чек-лист\n\n";
+        
+        document.querySelectorAll('.category').forEach(category => {
+            const title = category.querySelector('h3').textContent;
+            content += `▫️ ${title}\n`;
+            
+            category.querySelectorAll('.checkbox-container').forEach(item => {
+                const checked = item.querySelector('input').checked;
+                const text = item.textContent.trim();
+                content += `   ${checked ? '✅' : '☐'} ${text}\n`;
+            });
+            
+            content += '\n';
         });
         
-        notesContent += '\n';
+        // Web Share API для мобильных устройств
+        if (navigator.share) {
+            navigator.share({
+                title: 'Чек-лист для отпуска',
+                text: content
+            }).catch(err => {
+                copyToClipboard(content);
+            });
+        } else {
+            copyToClipboard(content);
+        }
+    }
+    
+    // Копирование в буфер обмена
+    function copyToClipboard(text) {
+        const textarea = document.createElement('textarea');
+        textarea.value = text;
+        document.body.appendChild(textarea);
+        textarea.select();
+        
+        try {
+            document.execCommand('copy');
+            alert('Чек-лист скопирован! Вставьте его в Заметки.');
+        } catch (err) {
+            prompt('Скопируйте этот текст:', text);
+        }
+        
+        document.body.removeChild(textarea);
+    }
+    
+    // Назначение обработчиков
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', updateProgress);
     });
     
-    // Создаем временный элемент для копирования
-    const textarea = document.createElement('textarea');
-    textarea.value = notesContent;
-    document.body.appendChild(textarea);
-    textarea.select();
+    document.getElementById('exportApple').addEventListener('click', exportToAppleNotes);
     
-    try {
-        document.execCommand('copy');
-        alert('Чек-лист скопирован! Вставьте его в приложение "Заметки".\n\nСовет: Для лучшего форматирования используйте моноширинный шрифт в настройках заметки.');
-    } catch (err) {
-        alert('Не удалось скопировать. Попробуйте выделить текст вручную:\n\n' + notesContent);
-    }
-    
-    document.body.removeChild(textarea);
-    
-    // Альтернатива для iOS
-    if (navigator.share) {
-        navigator.share({
-            title: 'Чек-лист для отпуска',
-            text: notesContent
-        }).catch(err => {
-            console.log('Ошибка sharing:', err);
-        });
-    }
-}
+    // Инициализация
+    loadProgress();
+});
