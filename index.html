@@ -4,91 +4,97 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ехать готов - Чек-лист для отпуска</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto+Flex:wght@300;400;500;700&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=TT+Commons:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="container">
+    <div class="wrapper">
+        <header class="header">
             <div class="logo">
-                <div class="logo-mark">
-                    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M20 0C8.96 0 0 8.96 0 20C0 31.04 8.96 40 20 40C31.04 40 40 31.04 40 20C40 8.96 31.04 0 20 0ZM28 28L16 16V8H24V20L28 28Z" fill="url(#gradient)"/>
-                        <defs>
-                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                                <stop offset="0%" stop-color="#4361EE"/>
-                                <stop offset="50%" stop-color="#3A0CA3"/>
-                                <stop offset="100%" stop-color="#7209B7"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
+                <div class="logo-icon">
+                    <i class="fas fa-check-circle"></i>
                 </div>
                 <h1>Ехать готов</h1>
             </div>
-            <p class="subtitle">Идеальная подготовка к путешествию</p>
-        </div>
-    </header>
+            <p class="tagline">Чек-лист для идеального отпуска</p>
+        </header>
 
-    <main class="container">
-        <section class="hero">
-            <div class="hero-text">
-                <h2>Все готово к отпуску?</h2>
-                <p>Пройдите чек-лист и отправляйтесь в путешествие без забот</p>
+        <main class="main-content">
+            <section class="progress-section">
                 <div class="progress-container">
                     <div class="progress-bar" id="progressBar"></div>
-                    <div class="progress-text" id="progressText">0% завершено</div>
                 </div>
-            </div>
-            <div class="hero-image">
-                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Путешествие">
-            </div>
-        </section>
+                <div class="progress-text" id="progressText">0% завершено</div>
+            </section>
 
-        <section class="checklist-section">
-            <div class="checklist-grid">
-                <div class="category">
-                    <div class="category-header">
+            <section class="checklist-grid">
+                <!-- Документы -->
+                <div class="checklist-card">
+                    <div class="card-header">
                         <i class="fas fa-passport"></i>
-                        <h3>Документы</h3>
+                        <h2>Документы</h2>
                     </div>
-                    <ul class="checklist">
-                        <li>
-                            <label class="checkbox-container">
-                                <input type="checkbox">
-                                <span class="checkmark"></span>
-                                Паспорт (срок действия более 6 месяцев)
-                            </label>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <input type="checkbox" id="doc1">
+                            <label for="doc1">Паспорт</label>
                         </li>
-                        <!-- Остальные пункты -->
+                        <li class="checklist-item">
+                            <input type="checkbox" id="doc2">
+                            <label for="doc2">Билеты</label>
+                        </li>
+                        <!-- Добавьте остальные пункты -->
                     </ul>
                 </div>
-                <!-- Остальные категории -->
-            </div>
-        </section>
 
-        <section class="save-section">
-            <h3>Сохраните ваш прогресс</h3>
-            <div class="save-options">
-                <button id="exportText" class="save-btn">
-                    <i class="fas fa-file-alt"></i> Текстовый файл
-                </button>
-                <button id="exportNotion" class="save-btn">
-                    <i class="fas fa-book"></i> Notion
-                </button>
-                <button id="exportApple" class="save-btn">
-                    <i class="fab fa-apple"></i> Apple Заметки
-                </button>
-            </div>
-        </section>
-    </main>
+                <!-- Вещи -->
+                <div class="checklist-card">
+                    <div class="card-header">
+                        <i class="fas fa-suitcase"></i>
+                        <h2>Вещи</h2>
+                    </div>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <input type="checkbox" id="item1">
+                            <label for="item1">Одежда</label>
+                        </li>
+                        <!-- Добавьте остальные пункты -->
+                    </ul>
+                </div>
 
-    <footer>
-        <div class="container">
-            <p>© 2023 Ехать готов. Ваш идеальный помощник в путешествиях.</p>
-        </div>
-    </footer>
+                <!-- Дом -->
+                <div class="checklist-card">
+                    <div class="card-header">
+                        <i class="fas fa-home"></i>
+                        <h2>Дом</h2>
+                    </div>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <input type="checkbox" id="home1">
+                            <label for="home1">Выключить приборы</label>
+                        </li>
+                        <!-- Добавьте остальные пункты -->
+                    </ul>
+                </div>
+
+                <!-- Финансы -->
+                <div class="checklist-card">
+                    <div class="card-header">
+                        <i class="fas fa-wallet"></i>
+                        <h2>Финансы</h2>
+                    </div>
+                    <ul class="checklist-items">
+                        <li class="checklist-item">
+                            <input type="checkbox" id="money1">
+                            <label for="money1">Наличные</label>
+                        </li>
+                        <!-- Добавьте остальные пункты -->
+                    </ul>
+                </div>
+            </section>
+        </main>
+    </div>
 
     <script src="script.js"></script>
 </body>
