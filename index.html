@@ -6,91 +6,45 @@
     <title>Nike — Главная</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Временные стили для проверки загрузки */
+        body { background-color: #f5f5f5; }
+        img { border: 2px solid red; } /* Чтобы видеть границы изображений */
+    </style>
 </head>
 <body>
-    <!-- Шапка -->
     <header>
         <nav>
             <div class="logo">
-                <a href="#"><img src="https://i.imgur.com/5bM5P7h.png" alt="Nike Logo" width="60"></a>
+                <img src="https://static.nike.com/a/images/f_jpg,q_auto:eco/61b4738b-e1e1-4786-8f6c-26aa0008e900/swoosh-logo-black.png" alt="Nike" width="70">
             </div>
             <ul class="nav-links">
-                <li><a href="#">Новинки</a></li>
-                <li><a href="#">Мужское</a></li>
-                <li><a href="#">Женское</a></li>
-                <li><a href="#">Детское</a></li>
-                <li><a href="#">Скидки</a></li>
+                <li><a href="#">Мужчины</a></li>
+                <li><a href="#">Женщины</a></li>
+                <li><a href="#">Дети</a></li>
             </ul>
-            <div class="nav-icons">
-                <a href="#"><i class="fas fa-search"></i></a>
-                <a href="#"><i class="far fa-heart"></i></a>
-                <a href="#"><i class="fas fa-shopping-bag"></i></a>
-            </div>
         </nav>
     </header>
 
-    <!-- Главный баннер -->
     <section class="hero">
-        <div class="hero-content">
-            <h1>NIKE AIR MAX</h1>
-            <p>Легендарная амортизация. Современный дизайн.</p>
-            <a href="#" class="btn">Купить</a>
-        </div>
+        <img src="https://static.nike.com/a/images/f_auto/dpr_1.0/w_1920,c_limit/1753161a-0f8e-4e7a-9b88-5b7b3a6b5b9a/nike-air-max.jpg" alt="Nike Air Max" class="hero-image">
     </section>
 
-    <!-- Популярные товары -->
-    <section class="featured">
-        <h2>Популярное</h2>
-        <div class="products">
-            <div class="product-card">
-                <img src="https://i.imgur.com/JR9q0Zs.jpg" alt="Nike Air Force 1">
-                <h3>Nike Air Force 1</h3>
-                <p>12,999 ₽</p>
-            </div>
-            <div class="product-card">
-                <img src="https://i.imgur.com/5XJQ3Bp.jpg" alt="Nike Dunk Low">
-                <h3>Nike Dunk Low</h3>
-                <p>10,999 ₽</p>
-            </div>
-            <div class="product-card">
-                <img src="https://i.imgur.com/8ZJl3fN.jpg" alt="Nike Air Jordan 1">
-                <h3>Air Jordan 1</h3>
-                <p>15,999 ₽</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Футер -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h4>О Nike</h4>
-                <ul>
-                    <li><a href="#">Новости</a></li>
-                    <li><a href="#">Карьера</a></li>
-                    <li><a href="#">Инвесторы</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Помощь</h4>
-                <ul>
-                    <li><a href="#">Доставка</a></li>
-                    <li><a href="#">Возврат</a></li>
-                    <li><a href="#">Размеры</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h4>Соцсети</h4>
-                <div class="social-icons">
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                    <a href="#"><i class="fab fa-facebook-f"></i></a>
-                </div>
-            </div>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2024 Nike, Inc. Все права защищены</p>
-        </div>
-    </footer>
+    <script>
+        // Проверка загрузки изображений
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.onerror = () => {
+                    console.error('Ошибка загрузки:', img.src);
+                    img.style.border = '2px dashed red';
+                };
+                img.onload = () => {
+                    console.log('Успешно загружено:', img.src);
+                    img.style.border = 'none';
+                };
+            });
+        });
+    </script>
 </body>
 </html>
