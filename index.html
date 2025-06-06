@@ -3,48 +3,95 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nike — Главная</title>
+    <title>TravelReady - Чек-лист для отпуска</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* Временные стили для проверки загрузки */
-        body { background-color: #f5f5f5; }
-        img { border: 2px solid red; } /* Чтобы видеть границы изображений */
-    </style>
 </head>
 <body>
     <header>
-        <nav>
+        <div class="container">
             <div class="logo">
-                <img src="https://static.nike.com/a/images/f_jpg,q_auto:eco/61b4738b-e1e1-4786-8f6c-26aa0008e900/swoosh-logo-black.png" alt="Nike" width="70">
+                <i class="fas fa-suitcase-rolling"></i>
+                <h1>TravelReady</h1>
             </div>
-            <ul class="nav-links">
-                <li><a href="#">Мужчины</a></li>
-                <li><a href="#">Женщины</a></li>
-                <li><a href="#">Дети</a></li>
-            </ul>
-        </nav>
+            <p class="subtitle">Ваш идеальный помощник в подготовке к путешествию</p>
+        </div>
     </header>
 
-    <section class="hero">
-        <img src="https://static.nike.com/a/images/f_auto/dpr_1.0/w_1920,c_limit/1753161a-0f8e-4e7a-9b88-5b7b3a6b5b9a/nike-air-max.jpg" alt="Nike Air Max" class="hero-image">
-    </section>
+    <main class="container">
+        <section class="hero">
+            <div class="hero-text">
+                <h2>Все готово к отпуску?</h2>
+                <p>Пройдите чек-лист и отправляйтесь в путешествие без забот</p>
+                <div class="progress-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                    <div class="progress-text" id="progressText">0% завершено</div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Путешествие">
+            </div>
+        </section>
 
-    <script>
-        // Проверка загрузки изображений
-        document.addEventListener('DOMContentLoaded', function() {
-            const images = document.querySelectorAll('img');
-            images.forEach(img => {
-                img.onerror = () => {
-                    console.error('Ошибка загрузки:', img.src);
-                    img.style.border = '2px dashed red';
-                };
-                img.onload = () => {
-                    console.log('Успешно загружено:', img.src);
-                    img.style.border = 'none';
-                };
-            });
-        });
-    </script>
-</body>
-</html>
+        <section class="checklist-section">
+            <div class="category">
+                <div class="category-header">
+                    <i class="fas fa-passport"></i>
+                    <h3>Документы</h3>
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Паспорт (срок действия более 6 месяцев)
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Виза (если требуется)
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Билеты (электронные/бумажные)
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Страховой полис
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Бронь отелей/апартаментов
+                        </label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="category">
+                <div class="category-header">
+                    <i class="fas fa-suitcase"></i>
+                    <h3>Вещи</h3>
+                </div>
+                <ul class="checklist">
+                    <li>
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span>
+                            Одежда по погоде
+                        </label>
+                    </li>
+                    <li>
+                        <label class="checkbox-container">
+                            <input type="checkbox">
+                            <span class="checkmark"></span
